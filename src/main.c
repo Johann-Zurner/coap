@@ -1,3 +1,19 @@
+/*
+ * Einfacher CoAP-Button-Client für das nRF9160:
+ *
+ * - Stellt über LTE eine Verbindung ins Mobilfunknetz her.
+ * - Öffnet einen UDP-Socket zu einem CoAP-Server (SERVER_IP, SERVER_PORT).
+ * - Button 1 sendet einen CoAP GET Request.
+ * - Button 2 sendet einen CoAP PUT Request mit dem Payload an die Ressource "echo".
+ * - Zu jedem gesendeten CoAP-Paket wird der vollständige Inhalt als Hexdump geloggt.
+ * - Eingehende CoAP-Antworten werden empfangen, als Hexdump ausgegeben
+ *   und die Payload (falls vorhanden) als Text im Log angezeigt.
+ *
+ * Damit kann man per Knopfdruck CoAP-Nachrichten über LTE an den Server schicken
+ * und Request/Response im Log (Hex + Payload) beobachten.
+ */
+
+
 #include <zephyr/kernel.h>
 #include <zephyr/net/socket.h>
 #include <zephyr/net/coap.h>

@@ -1,5 +1,7 @@
-root@DTLSserver:~/coap_server# cat coapserver.c
-/* Minimal CoAP UDP echo server (libcoap-3) */
+/* Minimal CoAP UDP echo server (libcoap-3) 
+libcoap 3 needs to be installed
+
+*/
 
 #include <stdio.h>
 #include <string.h>
