@@ -49,7 +49,7 @@ hnd_echo(coap_resource_t *resource,
         /* Copy original payload */
         memcpy(out, data, size);
 
-        /* Append suffix (may be truncated in extreme cases) */
+        /* Append suffix */
         size_t max_suffix = out_len - size;
         memcpy(out + size, suffix, max_suffix);
 
@@ -57,7 +57,7 @@ hnd_echo(coap_resource_t *resource,
         coap_add_data(response, out_len, out);
 
     } else {
-        /* No payload: say so */
+        /* No payload:*/
         const char *msg = "no payload";
         printf("Received request with NO payload\n");
         coap_add_data(response, strlen(msg), (const uint8_t *)msg);
@@ -76,7 +76,7 @@ hnd_root(coap_resource_t *resource,
     coap_pdu_set_code(response, COAP_RESPONSE_CODE_CONTENT);
     coap_add_data(response, strlen(msg), (const uint8_t *)msg);
 
-    printf("GET request on /hello → responded with \"Rumpel!\"\n");
+    printf("GET request on / sent payload \n");
 }
 
 
